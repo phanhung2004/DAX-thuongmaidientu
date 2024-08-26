@@ -35,16 +35,6 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="#">Sign in</a>
-                <a href="#">FAQs</a>
-            </div>
-            <div class="offcanvas__top__hover">
-                <span>Usd <i class="arrow_carrot-down"></i></span>
-                <ul>
-                    <li>USD</li>
-                    <li>EUR</li>
-                    <li>USD</li>
-                </ul>
             </div>
         </div>
         <div class="offcanvas__nav__option">
@@ -74,16 +64,20 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
-                                <a href="#">FAQs</a>
-                            </div>
-                            <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
-                                <ul>
-                                    <li>USD</li>
-                                    <li>EUR</li>
-                                    <li>USD</li>
-                                </ul>
+                                @if (Auth::check())
+                                <!-- Đoạn code này sẽ chỉ hiện thị nếu người dùng đã đăng nhập -->
+                                <a href="{{ route('logout') }}">LOGOUT</a>
+
+                                @if (Auth::user()->role == 'admin')
+                                    <!-- Đoạn code này sẽ chỉ hiện thị nếu người dùng là admin -->
+                                    <a href="{{ route('admin.dashboard') }}">Admin Dashboard</a>
+                                @endif
+
+                                @if (Auth::user()->role == 'user')
+                                    <!-- Đoạn code này sẽ chỉ hiện thị nếu người dùng là user -->
+                                    <a href="">User Profile</a>
+                                @endif
+                            @endif
                             </div>
                         </div>
                     </div>
@@ -94,7 +88,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="{{ asset('/asset/') }}/img/logo.png" alt=""></a>
+                        <a href="{{ route('home') }}"><img src="{{ asset('/asset/') }}/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">

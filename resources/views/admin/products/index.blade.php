@@ -56,7 +56,7 @@
                                                 <td>{{ $product->code }}</td>
                                                 <td>{{ $product->name }}</td>
                                                 <td>
-                                                    <img src="{{ $product->image }}" width="50" alt="">
+                                                    <img src="{{ asset('storage/' . $product->image) }}" width="50" alt="">
                                                 </td>
                                                 <td>{{ $product->price }}</td>
                                                 <td>{{ $product->sale_price }}</td>

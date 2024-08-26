@@ -24,9 +24,17 @@ class ProductController extends Controller
         foreach ($variants as $variant) {
             $sizes[$variant->size->id] = $variant->size->name;
         }
+
+        $relatedProducts = Product::query()
+        ->where('category_id', $product->category_id)
+        ->where('id', '!=', $product->id)
+        ->where('soft_delete', 0) // Loại bỏ sản phẩm hiện tại
+        ->limit(4)
+        ->get();
+
         return view(
             'product-detail',
-            compact('product', 'variants', 'colors', 'sizes')
+            compact('product', 'variants', 'colors', 'sizes', 'relatedProducts')
         );
     }
 }

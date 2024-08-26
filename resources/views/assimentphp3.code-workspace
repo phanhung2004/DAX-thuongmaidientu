@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "../../../assimentphp3"
+		},
+		{
+			"path": "../../../RealltimeChatAndCurd-main"
+		},
+		{
+			"path": "../../../example-app"
+		},
+		{
+			"path": "../../../php3_wd18323-master"
+		},
+		{
+			"path": "../../../xuong_techchain_c2-master"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "example-app"
+	}
+}

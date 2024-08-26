@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $product8 = Product::query()->orderByDesc('id')->limit(8)->get();
+        $product8 = Product::query()->where('soft_delete', 0)->orderByDesc('id')->limit(8)->get();
         return view('home', compact('product8'));
     }
 }
